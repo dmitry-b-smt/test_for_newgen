@@ -75,40 +75,56 @@ function filterByPrice(arr, range) {
 }
 
 
-// Список курсов
-let courses = [
-    { name: "Courses in England", prices: [0, 100] },
-    { name: "Courses in Germany", prices: [500, null] },
-    { name: "Courses in Italy", prices: [100, 200] },
-    { name: "Courses in Russia", prices: [null, 400] },
-    { name: "Courses in China", prices: [50, 250] },
-    { name: "Courses in USA", prices: [200, null] },
-    { name: "Courses in Kazakhstan", prices: [56, 324] },
-    { name: "Courses in France", prices: [null, null] },
-];
 
 
-// Варианты цен (фильтры), которые ищет пользователь
-let requiredRange0 = [null, null];
-let requiredRange1 = [null, 200];
-let requiredRange2 = [100, 350];
-let requiredRange3 = [200, null];
-let requiredRange4 = [400, null];
-let requiredRange5 = [null, 500];
+
+/* ======= ТЕСТОВЫЕ ВХОДНЫЕ ДАННЫЕ ========== */
+let requiredRanges = [
+    [null, null],
+    [null, 200],
+    [100, 350],
+    [200, null],
+    [400, null],
+    [null, 500],
+]
 
 
-/* ВВОД ВХОДНЫХ ДАННЫХ */
-let res = filterByPrice(courses, requiredRange1);
+/* =========== ТЕСТ ============================ */
+requiredRanges.forEach(function (item, i) {
+
+    // Список курсов
+    let courses = [
+        { name: "Courses in England", prices: [0, 100] },
+        { name: "Courses in Germany", prices: [500, null] },
+        { name: "Courses in Italy", prices: [100, 200] },
+        { name: "Courses in Russia", prices: [null, 400] },
+        { name: "Courses in China", prices: [50, 250] },
+        { name: "Courses in USA", prices: [200, null] },
+        { name: "Courses in Kazakhstan", prices: [56, 324] },
+        { name: "Courses in France", prices: [null, null] },
+    ];
+
+    console.log(`=== START TEST ${i} ===`);
+
+    /* ВВОД ВХОДНЫХ ДАННЫХ */
+    let res = filterByPrice(courses, item);
 
 
-/* СОРТИРОВКА */
-res = sortByMinAsc(courses);
-// res = sortByMinDes(courses);
-// res = sortByMaxAsc(courses);
-// res = sortByMaxDes(courses);
+    /* СОРТИРОВКА */
+    res = sortByMinAsc(courses);
+    // res = sortByMinDes(courses);
+    // res = sortByMaxAsc(courses);
+    // res = sortByMaxDes(courses);
 
 
-/* ВЫВОД РЕЗУЛЬТАТА В КОНСОЛЬ */
-res.forEach(item => {
-    console.log(`Price from ${item.prices[0]} to ${item.prices[1]}. ${item.name}`);
+    /* ВЫВОД РЕЗУЛЬТАТА В КОНСОЛЬ */
+    res.forEach(item => {
+        console.log(`Price from ${item.prices[0]} to ${item.prices[1]}. ${item.name}`);
+    })
+
+    console.log(`=== END TEST ${i} ===\n\n`);
 })
+
+
+
+
