@@ -36,7 +36,7 @@ function sortByMaxDes(arr) {
 
 /* ============== ФУНКЦИЯ ФИЛЬТРА ПО ВЫБРАННОМУ ДИАПАЗОНУ ЦЕН ================================ */
 function filterByPrice(arr, range) {
-    if (range[0] != null & range[1] != null) {
+    if (range[0] != null && range[1] != null) {
         arr.forEach(function (item, i, arr) {
 
             if (item.prices[0] == null) {
